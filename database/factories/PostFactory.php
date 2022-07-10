@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -24,7 +25,7 @@ class PostFactory extends Factory
 
         return [
             'title' => $title,
-            'slug' => $this->faker->slug,
+            'slug' => Str::slug($title),
             'body' => $post,
             'description' => $this->faker->realText,
             'published' => $this->faker->boolean
