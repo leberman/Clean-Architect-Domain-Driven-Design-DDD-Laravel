@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -26,12 +28,11 @@ class Post extends Model
         'published' => 'boolean'
     ];
 
-    public function user() :BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(
             related: Post::class,
             foreignKey: 'user_id'
         );
     }
-
 }

@@ -12,7 +12,6 @@ use Illuminate\Support\Str;
  */
 class PostFactory extends Factory
 {
-
     public function definition(): array
     {
         $paragraphs = $this->faker->paragraphs(rand(2, 6));
@@ -30,7 +29,5 @@ class PostFactory extends Factory
             'description' => $this->faker->realText,
             'published' => $this->faker->boolean
         ];
-
-
     }
 }

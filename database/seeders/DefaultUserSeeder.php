@@ -8,8 +8,7 @@ use Illuminate\Database\Seeder;
 
 class DefaultUserSeeder extends Seeder
 {
-
-    public function run() :void
+    public function run(): void
     {
         User::factory()->create([
             'first_name' => 'Mohammad',
