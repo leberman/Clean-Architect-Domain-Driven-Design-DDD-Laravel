@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Domain\Blogging\Models;
 
 use Domain\Blogging\Models\Builders\PostBuilder;
+use Domain\Shared\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,7 +33,7 @@ class Post extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(
-            related: Post::class,
+            related: User::class,
             foreignKey: 'user_id'
         );
     }
@@ -40,7 +41,7 @@ class Post extends Model
     #[Pure] public function newEloquentBuilder($query): PostBuilder
     {
         return new PostBuilder(
-            query : $query
+            query: $query
         );
     }
 }
