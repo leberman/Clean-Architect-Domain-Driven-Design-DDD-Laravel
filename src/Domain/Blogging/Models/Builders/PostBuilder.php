@@ -10,11 +10,11 @@ class PostBuilder extends Builder
 {
     public function published(): self
     {
-        return $this->where('published', TRUE);
+        return $this->where('published', true);
     }
 
     public function draft(): self
     {
-        return $this->where('published', FALSE);
+        return $this->where('published', false);
     }
 }

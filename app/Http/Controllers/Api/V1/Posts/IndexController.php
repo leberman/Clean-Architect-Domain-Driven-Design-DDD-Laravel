@@ -16,7 +16,6 @@ class IndexController extends Controller
 {
     public function __invoke(Request $request): JsonResponse
     {
-
         $posts = QueryBuilder::for(
             subject: Post::class
         )->allowedIncludes(
