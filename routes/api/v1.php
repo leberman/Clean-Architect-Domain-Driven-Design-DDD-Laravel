@@ -19,6 +19,6 @@ Route::prefix('posts')->as('posts:')->group(callback: function () {
     Route::get('/', IndexController::class)->name('index'); // [api:v1:posts:index]
     Route::post('/', StoreController::class)->name('store'); // [api:v1:posts:store]
     Route::delete('/{post:id}', DeleteController::class)->name('delete'); // [api:v1:posts:delete]
-    Route::patch('/{post:id}', UpdateController::class)->name('update'); // [api:v1:posts:update]
+    Route::patch('/{id}', UpdateController::class)->name('update'); // [api:v1:posts:update]
     Route::get('/{post:id}/{slug}', ShowController::class)->name('show'); // [api:v1:posts:show]
 });

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Jobs\Posts;
+namespace Domain\Blogging\Jobs\Posts;
 
 use Domain\Blogging\Models\Post;
 use Domain\Blogging\ValueObjects\PostValueObject;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -15,14 +14,9 @@ class UpdatePost implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
     public function __construct(
-        public int $postID,
-        public PostValueObject $object
+        public PostValueObject $object,
+        public int $postID
     ) {}
 
     public function handle() :void
