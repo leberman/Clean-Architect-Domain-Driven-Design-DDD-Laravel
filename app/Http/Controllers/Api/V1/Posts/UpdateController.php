@@ -18,7 +18,6 @@ class UpdateController extends Controller
 {
     public function __invoke(UpdateRequest $request, $postID): Response|ResponseFactory
     {
-
         UpdatePost::dispatch(
             object: PostFactory::create(
                 attributes: $request->validated()

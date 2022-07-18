@@ -9,8 +9,8 @@ use Domain\Blogging\ValueObjects\PostValueObject;
 
 class DeletePost
 {
-    public static function handle(PostValueObject $object)
+    public static function handle(PostValueObject $object, Post $post): ?bool
     {
-//        return $post->update($object->toArray());
+        return $post->delete();
     }
 }

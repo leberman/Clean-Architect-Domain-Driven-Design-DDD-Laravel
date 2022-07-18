@@ -16,6 +16,6 @@ class StoreController extends Controller
             attributes: $request->validated(),
         ));
 
-        return response(content: null,status: Http::CREATED);
+        return response(content: null, status: Http::CREATED);
     }
 }

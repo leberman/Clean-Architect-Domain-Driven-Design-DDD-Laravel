@@ -12,14 +12,18 @@ use Illuminate\Queue\SerializesModels;
 
 class UpdatePost implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     public function __construct(
         public PostValueObject $object,
         public int $postID
-    ) {}
+    ) {
+    }
 
-    public function handle() :void
+    public function handle(): void
     {
         $post = Post::find($this->postID);
         $post->update($this->object->toArray());

@@ -12,18 +12,22 @@ use Illuminate\Queue\SerializesModels;
 
 class DeletePost implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     public function __construct(
         public PostValueObject $object,
         public int $postID
-    )
-    {}
+    ) {
+    }
 
-    public function handle() :void
+    public function handle(): void
     {
         DeletePostAction::handle(
-            object: $this->object
+            object: $this->object,
+            post: $this->postID
         );
     }
 }
