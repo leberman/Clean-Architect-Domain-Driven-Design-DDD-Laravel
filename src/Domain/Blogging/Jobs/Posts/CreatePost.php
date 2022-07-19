@@ -28,8 +28,9 @@ class CreatePost implements ShouldQueue
     public function handle(): void
     {
 
-        PostAggregate::retrieve(Str::uuid()->toString())
-            ->createPost(
+        PostAggregate::retrieve(
+           uuid:  Str::uuid()->toString()
+        )->createPost(
                 object: $this->object,
                 userID: 1
             )
