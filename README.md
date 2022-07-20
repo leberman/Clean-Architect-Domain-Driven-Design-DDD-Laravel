@@ -12,3 +12,7 @@ for run, install docker and :
 sail up -d
 sail migrate --seed
 ```
+
+Download api collection :
+[insomnia file for api collection](https://github.com/leberman/Clean-Architect-Domain-Driven-Design-DDD-Laravel/blob/master/Insomnia_2022-07-20.json "Insomnia file")
+
