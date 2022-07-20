@@ -16,13 +16,13 @@ use JustSteveKing\StatusCode\Http;
 
 class UpdateController extends Controller
 {
-    public function __invoke(UpdateRequest $request, $postID): Response|ResponseFactory
+    public function __invoke(UpdateRequest $request, $id): Response|ResponseFactory
     {
         UpdatePost::dispatch(
             object: PostFactory::create(
                 attributes: $request->validated()
             ),
-            postID: $postID
+            postID: $id
         );
 
         return response(

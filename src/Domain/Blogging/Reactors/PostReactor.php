@@ -6,6 +6,7 @@ namespace Domain\Blogging\Reactors;
 
 use App\Mail\Posts\NewPost;
 use Domain\Blogging\Events\PostWasCreated;
+use Domain\Blogging\Events\PostWasUpdated;
 use Domain\Shared\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
@@ -18,6 +19,19 @@ class PostReactor extends Reactor implements ShouldQueue
         $author = User::find($event->userID);
 
         Mail::to($author->email)->send(
+            mailable: new NewPost(
+                object: $event->object,
+            ),
+        );
+
+    }
+
+    public function onPostWasUpdated(PostWasUpdated $event):void
+    {
+        $post = Post::find($event->postUid);
+        $user = User::find($post->user_id);
+
+        Mail::to($user->email)->send(
             mailable: new NewPost(
                 object: $event->object,
             ),
